@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+/* Beer */
+
 .beer {
   display: flex;
   justify-content: center;
@@ -37,12 +39,31 @@ code {
 
 .name {
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .ph {
   margin-top: 1rem;
 }
 
+.desc {
+  margin-top: 1.5rem;
+  font-size: .8rem;
+}
+
 .tips {
   margin-top: 1.5rem;
+  font-size: .8rem;
+}
+
+/* Like Button */
+.button-container {
+  position: relative;
+  top: 1rem;
+  right: 1rem;
+}
+
+.like-button {
+  border-radius: 8px;
+  border: .1rem solid grey;
 }
