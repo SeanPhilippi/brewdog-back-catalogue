@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Beer from './components/Beer'
 
-class App extends React.Component() {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,9 +12,10 @@ class App extends React.Component() {
   }
 
   componentDidMount() {
-    fetch('https://api.punkapi.com/v2/')
+    fetch('https://api.punkapi.com/v2/beers')
       .then(data => data.json())
       .then(beers => {
+        console.log('beers', beers)
         this.setState({beers: beers});
       })
   }
