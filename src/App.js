@@ -23,9 +23,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.beers.map(beer => {
-          return <Beer beer={beer}/>
-        })}
+        {this.state.beers.map(beer => <Beer beer={beer}/>
+        )}
       </div>
     );
   }

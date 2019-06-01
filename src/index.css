@@ -34,7 +34,7 @@ code {
   flex-direction: column;
   width: 200px;
   justify-content: center;
-  margin-right: 2rem;
+  margin: 0 2rem;
 }
 
 .name {
@@ -61,9 +61,23 @@ code {
   position: relative;
   top: 1rem;
   right: 1rem;
+  height: 10px;
 }
 
 .like-button {
+  color: white;
+  background-color: blue;
   border-radius: 8px;
-  border: .1rem solid grey;
+  box-shadow: rgb(0, 0, 106);
+  width: 3rem;
+}
+
+.like-button:hover {
+  cursor: pointer;
+  background-color: rgb(4, 4, 179);
+}
+
+.like-button:active {
+  cursor: pointer;
+  background-color: rgb(4, 4, 179);
 }

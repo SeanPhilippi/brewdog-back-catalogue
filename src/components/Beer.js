@@ -13,7 +13,6 @@ const Beer = props => {
     justifyContent: 'center',
     alignItems: 'center',
   }
-  console.log('props', props.beer.image_url)
 
   return (
     <div className="beer">

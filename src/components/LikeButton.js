@@ -5,11 +5,17 @@ class LikeButton extends React.Component {
     liked: false,
   }
 
+  handleClick = () => {
+    this.setState({
+      liked: !this.state.liked
+    })
+  }
+
   render() {
     return (
-      <div className="button-container">
+      <div onClick={() => this.handleClick()} className="button-container">
         <button className="like-button">
-          Like
+          {this.state.liked ? 'Liked' : 'Like'}
         </button>
       </div>
     )
