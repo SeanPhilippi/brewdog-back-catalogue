@@ -12,9 +12,37 @@ code {
     monospace;
 }
 
-.image {
-  margin: auto;
-  max-width: 150px;
+.beer {
   display: flex;
   justify-content: center;
+  border: 1px grey solid;
+  border-radius: 10px;
+  width: 400px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  transition: 0.3s;
+}
+
+.beer:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+.beer-info {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  justify-content: center;
+  margin-right: 2rem;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.ph {
+  margin-top: 1rem;
+}
+
+.tips {
+  margin-top: 1.5rem;
 }
