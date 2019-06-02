@@ -3,8 +3,6 @@ import Beer from './Beer';
 
 class Home extends React.Component {
 
-
-
   render() {
     return (
       <div className="Home">

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Home from './components/Home';
 import MyList from './components/MyList';
+import Nav from './components/Nav';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
@@ -48,8 +49,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Link to="/">Home</Link>{' '}
-          <Link to="/mylist">My List</Link>
+          <Nav />
 
           <Switch>
             <Route exact path="/" component={this.home} />

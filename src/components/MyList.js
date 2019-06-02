@@ -5,9 +5,12 @@ class MyList extends React.Component {
 
   render() {
     return (
-      <ul>
-        {this.props.likedBeers.map(beer => <Beer key={beer.id} beer={beer}/>)}
-      </ul>
+      <div className="mylist-container">
+        <h1 className="header">My Liked Beers</h1>
+        <ul className="list">
+          {this.props.likedBeers.map(beer => <Beer key={beer.id} beer={beer}/>)}
+        </ul>
+      </div>
     )
   }
 }
