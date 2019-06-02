@@ -18,7 +18,7 @@ class Beer extends React.Component {
     liked: false
   }
 
-  handleClick = (beer) => {
+  handleClick = () => {
     this.setState({liked: !this.state.liked})
   }
 
@@ -39,7 +39,7 @@ class Beer extends React.Component {
           className="image"
           style={this.myStyles}>
         </div>
-        <button className="like-button" liked={this.state.liked} onClick={() => {this.props.addToLiked(this.props.beer); this.handleClick()}} >
+        <button className="like-button" liked={this.state.liked} onClick={() => {this.props.addToLiked(this.props.beer); this.handleClick()}}>
           {this.state.liked ? 'Liked' : 'Like'}
         </button>
       </div>

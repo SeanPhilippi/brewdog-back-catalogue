@@ -21,12 +21,22 @@ class App extends React.Component {
   }
 
   addToLiked = (beer) => {
-    console.log('fired')
-    this.setState(prevState => {
-      return {
-        likedBeers: [...prevState.likedBeers, beer]
-      }
-    })
+    // ! working on delete filter
+    if (this.state.likedBeers.find(beer => beer.id === beer.id)) {
+      console.log('found')
+      this.setState(prevState => {
+        return {
+          likedBeers: [...prevState.likedBeers.filter(beer => beer.id !== beer.id)]
+        }
+      })
+    } else {
+      console.log('adding...')
+      this.setState(prevState => {
+        return {
+          likedBeers: [...prevState.likedBeers, beer]
+        }
+      })
+    }
   }
 
   render() {
