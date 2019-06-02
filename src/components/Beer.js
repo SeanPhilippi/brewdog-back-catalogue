@@ -1,5 +1,4 @@
 import React from 'react';
-import LikeButton from './LikeButton';
 
 class Beer extends React.Component {
   myStyles = {
@@ -39,8 +38,8 @@ class Beer extends React.Component {
           className="image"
           style={this.myStyles}>
         </div>
-        <button className="like-button" liked={this.state.liked} onClick={() => {this.props.addToLiked(this.props.beer); this.handleClick()}}>
-          {this.state.liked ? 'Liked' : 'Like'}
+        <button className="like-button" liked={this.state.liked} onClick={() => {this.props.checkLiked(this.props.beer); this.handleClick()}}>
+          { this.state.liked ? 'Liked' : 'Like' }
         </button>
       </div>
     )

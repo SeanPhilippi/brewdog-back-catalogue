@@ -20,13 +20,12 @@ class App extends React.Component {
       })
   }
 
-  addToLiked = (beer) => {
-    // ! working on delete filter
-    if (this.state.likedBeers.find(beer => beer.id === beer.id)) {
-      console.log('found')
+  checkLiked = (beer) => {
+    if (this.state.likedBeers.find(item => item.id === beer.id)) {
+      console.log('found, deleting')
       this.setState(prevState => {
         return {
-          likedBeers: [...prevState.likedBeers.filter(beer => beer.id !== beer.id)]
+          likedBeers: [...prevState.likedBeers.filter(item => item.id !== beer.id)]
         }
       })
     } else {
@@ -42,8 +41,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.beers.map(beer => <Beer beer={beer} addToLiked={(beer) => this.addToLiked(beer)} />
-        )}
+        {
+          this.state.beers.map(beer => <Beer beer={beer} checkLiked={(beer) => this.checkLiked(beer)} />)
+        }
       </div>
     );
   }
