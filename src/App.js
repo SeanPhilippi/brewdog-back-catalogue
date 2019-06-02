@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Beer from './components/Beer'
 
@@ -8,6 +7,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       beers: [],
+      likedBeers: [],
     };
   }
 
@@ -20,10 +20,19 @@ class App extends React.Component {
       })
   }
 
+  addToLiked = (beer) => {
+    console.log('fired')
+    this.setState(prevState => {
+      return {
+        likedBeers: [...prevState.likedBeers, beer]
+      }
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        {this.state.beers.map(beer => <Beer beer={beer}/>
+        {this.state.beers.map(beer => <Beer beer={beer} addToLiked={(beer) => this.addToLiked(beer)} />
         )}
       </div>
     );

@@ -58,18 +58,19 @@ code {
 
 /* Like Button */
 .button-container {
-  position: relative;
-  top: 1rem;
-  right: 1rem;
-  height: 10px;
+
 }
 
 .like-button {
+  position: relative;
+  top: 1rem;
+  right: 1rem;
+  height: 25px;
+  width: 3.5rem;
   color: white;
   background-color: blue;
   border-radius: 8px;
   box-shadow: rgb(0, 0, 106);
-  width: 3rem;
 }
 
 .like-button:hover {
