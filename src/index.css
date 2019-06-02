@@ -18,6 +18,26 @@ code {
     box-sizing: border-box;
 }
 
+/* Home */
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: darkslategrey;
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
 /* Nav */
 
 .nav .link:hover,
@@ -108,6 +128,7 @@ code {
 .name {
   font-weight: bold;
   font-size: 1.2rem;
+  color: darkcyan
 }
 
 .ph {
