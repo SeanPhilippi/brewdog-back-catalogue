@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-import Beer from './components/Beer'
+import Home from './components/Home';
+import MyList from './components/MyList';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      beers: [],
-      likedBeers: [],
-    };
-  }
+
+  state = {
+    beers: [],
+    likedBeers: [],
+  };
 
   componentDidMount() {
     fetch('https://api.punkapi.com/v2/beers')
@@ -36,18 +36,30 @@ class App extends React.Component {
         }
       })
     }
+    // log # of likedBeers in state, delay for async
+    setTimeout(() => console.log('likedBeers count: ', this.state.likedBeers.length), 300)
+
   }
+
+  home = () => <Home checkLiked={(beer) => this.checkLiked(beer)} beers={this.state.beers}/>;
+  myList = () => <MyList likedBeers={this.state.likedBeers}/>;
 
   render() {
     return (
-      <div className="App">
-        {
-          this.state.beers.map(beer => <Beer beer={beer} checkLiked={(beer) => this.checkLiked(beer)} />)
-        }
-      </div>
-    );
-  }
+      <Router>
+        <div>
+          <Link to="/">Home</Link>{' '}
+          <Link to="/mylist">My List</Link>
 
+          <Switch>
+            <Route exact path="/" component={this.home} />
+            <Route exact path="/mylist" component={this.myList} />
+            <Route render={() => <h1>Page not found</h1>} />
+          </Switch>
+        </div>
+      </Router>
+    )
+  }
 }
 
 export default App;

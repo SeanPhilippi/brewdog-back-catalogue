@@ -38,7 +38,7 @@ class Beer extends React.Component {
           className="image"
           style={this.myStyles}>
         </div>
-        <button className="like-button" liked={this.state.liked} onClick={() => {this.props.checkLiked(this.props.beer); this.handleClick()}}>
+        <button className="like-button" onClick={() => {this.props.checkLiked(this.props.beer); this.handleClick()}}>
           { this.state.liked ? 'Liked' : 'Like' }
         </button>
       </div>
