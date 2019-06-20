@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Home from './components/Home';
 import MyList from './components/MyList';
 import Nav from './components/Nav';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
-class App extends React.Component {
-
+export default class App extends Component {
   state = {
     beers: [],
     likedBeers: [],
@@ -16,50 +19,67 @@ class App extends React.Component {
     fetch('https://api.punkapi.com/v2/beers')
       .then(data => data.json())
       .then(beers => {
-        console.log('beers', beers)
-        this.setState({beers: beers});
+        console.log('beers', beers);
+        this.setState({ beers });
       })
   }
 
-  checkLiked = (beer) => {
-    if (this.state.likedBeers.find(item => item.id === beer.id)) {
-      console.log('found, deleting')
-      this.setState(prevState => {
-        return {
-          likedBeers: [...prevState.likedBeers.filter(item => item.id !== beer.id)]
-        }
-      })
+  toggleLiked = (beer) => {
+    const { id: beerId } = beer;
+    const { likedBeers } = this.state;
+
+    if (likedBeers.find(({id}) => id === beerId)) {
+      console.log('found, deleting');
+      this.setState(({ likedBeers }) => ({
+        likedBeers: likedBeers.filter(({ id }) => id !== beerId),
+      }));
     } else {
-      console.log('adding...')
-      this.setState(prevState => {
-        return {
-          likedBeers: [...prevState.likedBeers, beer]
-        }
-      })
+      console.log('adding...');
+      this.setState(({ likedBeers }) => ({
+        likedBeers: [...likedBeers, beer],
+      }));
     }
-    // log # of likedBeers in state, delay for async
-    setTimeout(() => console.log('likedBeers count: ', this.state.likedBeers.length), 300)
+  };
 
-  }
+  home = () => {
+    const { beers, likedBeers } = this.state;
 
-  home = () => <Home checkLiked={(beer) => this.checkLiked(beer)} beers={this.state.beers}/>;
-  myList = () => <MyList likedBeers={this.state.likedBeers}/>;
+    return (
+      <Home
+        toggleLiked={this.toggleLiked}
+        beers={beers}
+        likedBeers={likedBeers}
+      />
+    );
+  };
+
+  pageNotFound = () => (
+    <h1>
+      Page not found
+    </h1>
+  );
+
+  myList = () => (
+    <MyList
+      toggleLiked={this.toggleLiked}
+      likedBeers={this.state.likedBeers}
+    />
+  );
 
   render() {
+    console.log('likedBeers count: ', this.state.likedBeers.length);
+
     return (
       <Router>
         <div>
           <Nav />
-
           <Switch>
             <Route exact path="/" component={this.home} />
             <Route exact path="/mylist" component={this.myList} />
-            <Route render={() => <h1>Page not found</h1>} />
+            <Route render={this.pageNotFound()} />
           </Switch>
         </div>
       </Router>
     )
   }
 }
-
-export default App;
