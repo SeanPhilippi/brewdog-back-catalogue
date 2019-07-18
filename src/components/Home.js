@@ -1,26 +1,37 @@
 import React from 'react';
 import Beer from './Beer';
 
-class Home extends React.Component {
+export default ({
+  beers,
+  toggleLiked,
+  likedBeers,
+}) => {
+  const getLiked = beerId => likedBeers.find(({ id }) => id === beerId);
 
-  render() {
+  const renderBeers = () => beers.map(beer => {
+    const { id  } = beer;
+
     return (
-      <div className="Home">
-        <div className="site-title">
-          BrewDog Back Catalogue
-        </div>
-        <div className="subheading">
-          Explore here
-        </div>
-        <div className="beers-container">
-          {
-            this.props.beers.map(beer => <Beer key={beer.id} beer={beer} checkLiked={this.props.checkLiked} />)
-          }
-        </div>
-      </div>
+      <Beer
+        key={id}
+        beer={beer}
+        toggleLiked={toggleLiked}
+        liked={getLiked(id)}
+      />
     );
-  }
+  });
 
+  return (
+    <div className="Home">
+      <div className="site-title">
+        BrewDog Back Catalogue
+      </div>
+      <div className="subheading">
+        Explore here
+      </div>
+      <div className="beers-container">
+        { renderBeers() }
+      </div>
+    </div>
+  );
 }
-
-export default Home;
