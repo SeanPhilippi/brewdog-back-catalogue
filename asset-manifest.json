@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/brewdog-back-catalogue/static/css/main.024b1ce1.chunk.css",
+    "main.js": "/brewdog-back-catalogue/static/js/main.abd4da32.chunk.js",
+    "main.js.map": "/brewdog-back-catalogue/static/js/main.abd4da32.chunk.js.map",
+    "runtime~main.js": "/brewdog-back-catalogue/static/js/runtime~main.18a7daa6.js",
+    "runtime~main.js.map": "/brewdog-back-catalogue/static/js/runtime~main.18a7daa6.js.map",
+    "static/js/2.d2b319ca.chunk.js": "/brewdog-back-catalogue/static/js/2.d2b319ca.chunk.js",
+    "static/js/2.d2b319ca.chunk.js.map": "/brewdog-back-catalogue/static/js/2.d2b319ca.chunk.js.map",
+    "index.html": "/brewdog-back-catalogue/index.html",
+    "precache-manifest.fbaecfc83336eca5d576a5dc2399437a.js": "/brewdog-back-catalogue/precache-manifest.fbaecfc83336eca5d576a5dc2399437a.js",
+    "service-worker.js": "/brewdog-back-catalogue/service-worker.js",
+    "static/css/main.024b1ce1.chunk.css.map": "/brewdog-back-catalogue/static/css/main.024b1ce1.chunk.css.map"
+  }
+}
